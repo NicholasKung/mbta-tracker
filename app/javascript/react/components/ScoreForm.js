@@ -31,7 +31,6 @@ const ScoreForm = (props) => {
   let sum = 0
   const scoreAdder = () => {
     for(let i = 0; i < newScore.length; i++) {
-      debugger
       sum += newScore[i]
     }
     return sum
