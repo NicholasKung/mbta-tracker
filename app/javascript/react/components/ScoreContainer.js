@@ -3,7 +3,6 @@ import ScoreForm from './ScoreForm'
 import ScoreTile from './ScoreTile'
 
 const ScoreContainer = (props) => {
-
   const [scores, setScores] = useState([])
 
   useEffect(() => {
@@ -24,20 +23,34 @@ const ScoreContainer = (props) => {
     })
   }, [])
 
+  let totalScore = 0
+
+  const addRound = () => {
+    let total = 0
+    total = props.scoreData.first + props.scoreData.second + props.scoreData.third
+    totalScore += total
+    return total
+  }
+
+
+
   const scoreTiles = scores.map((score) => {
     return (
       <ScoreTile
         key={score.id}
         scoreData={score}
+        addRound={addRound}
       />
     )
   })
+
 
 
   return (
     <div>
       <ScoreForm/>
       {scoreTiles}
+      <h1>Total:{totalScore}</h1>
     </div>
   )
 }
