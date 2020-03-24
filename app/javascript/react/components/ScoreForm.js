@@ -19,7 +19,7 @@ const ScoreForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    let formPayLoad = setScore
+    let formPayLoad = newScore
     props.onSubmit(formPayLoad)
     setNewScore({
       try1: "",
@@ -38,7 +38,7 @@ const ScoreForm = (props) => {
 
   return(
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="try1">1stTry</label>
         <input id = "try1" type="text" value={newScore.try1} onChange={handleChange}/>
 
